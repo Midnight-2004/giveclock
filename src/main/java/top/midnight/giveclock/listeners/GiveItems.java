@@ -24,11 +24,10 @@ public class GiveItems implements Listener {
         if (!event.getPlayer().getInventory().contains(clock)) {
             if (event.getPlayer().getInventory().firstEmpty() != -1) {
                 event.getPlayer().getInventory().addItem(clock);
-                event.getPlayer().sendMessage(ChatColor.AQUA + "你获得了一个菜单时钟!");
+                event.getPlayer().sendMessage(ChatColor.AQUA + "[自动给钟]你获得了一个菜单时钟!");
             } else {
-                // 背包已满，掉落到玩家位置并提示
-                event.getPlayer().getWorld().dropItemNaturally(event.getPlayer().getLocation(), clock);
-                event.getPlayer().sendMessage(ChatColor.RED + "背包已满，菜单时钟已掉落在你身边。");
+                // 背包已满就不给了
+                event.getPlayer().sendMessage(ChatColor.RED + "[自动给钟]背包已满，请腾出空间后重新登录服务器获取钟。");
             }
         }
     }
