@@ -1,0 +1,8 @@
+name: GiveClock
+version: 0.0.1
+description: A Minecraft Bukkit plugin
+author: Midnight-2004
+main: top.midnight.giveclock.GiveClock
+api-version: 1.20
+api: []
+
