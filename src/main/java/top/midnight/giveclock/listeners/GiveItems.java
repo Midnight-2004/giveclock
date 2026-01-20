@@ -24,7 +24,7 @@ public class GiveItems implements Listener {
         if (!event.getPlayer().getInventory().contains(clock)) {
             if (event.getPlayer().getInventory().firstEmpty() != -1) {
                 event.getPlayer().getInventory().addItem(clock);
-                event.getPlayer().sendMessage(ChatColor.AQUA + "[自动给钟]你获得了一个菜单时钟!");
+                event.getPlayer().sendMessage(ChatColor.AQUA + "[自动给钟]你获得了一个用来打开菜单的钟!");
             } else {
                 // 背包已满就不给了
                 event.getPlayer().sendMessage(ChatColor.RED + "[自动给钟]背包已满，请腾出空间后重新登录服务器获取钟。");

@@ -10,6 +10,7 @@ public class GiveClock extends JavaPlugin {
     public void onEnable() {
         // Log plugin enabled message
         getLogger().info("GiveClock plugin enabled!");
+        getLogger().info("作者: 午夜_Midnight");
 
         // Register event listeners
         Bukkit.getPluginManager().registerEvents(new GiveItems(), this);
