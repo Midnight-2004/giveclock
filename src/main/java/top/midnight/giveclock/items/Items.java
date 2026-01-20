@@ -12,12 +12,15 @@ public class Items {
     // 获取Items方法，返回一个ItemStack对象
     public ItemStack getItem(String itemName) {
         if (itemName.equalsIgnoreCase("clock") || itemName.equalsIgnoreCase("watch")) {
-        // 根据Minecraft版本确定实际材料类型
+            Material materialType; // 声明变量类型
+        
+            // 根据Minecraft版本确定实际材料类型
             try {
                 materialType = Material.valueOf("CLOCK"); // 新版本
             } catch (IllegalArgumentException e) {
                 materialType = Material.valueOf("WATCH"); // 旧版本
             }
+            
             ItemStack clock = new ItemStack(materialType, 1);  
             ItemMeta meta = clock.getItemMeta();
             if (meta != null) {
