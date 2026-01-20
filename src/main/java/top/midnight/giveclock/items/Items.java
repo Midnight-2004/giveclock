@@ -11,8 +11,14 @@ public class Items {
 
     // 获取Items方法，返回一个ItemStack对象
     public ItemStack getItem(String itemName) {
-        if (itemName.equalsIgnoreCase("clock")) {
-            ItemStack clock = new ItemStack(Material.CLOCK, 1); 
+        if (itemName.equalsIgnoreCase("clock") || itemName.equalsIgnoreCase("watch")) {
+        // 根据Minecraft版本确定实际材料类型
+            try {
+                materialType = Material.valueOf("CLOCK"); // 新版本
+            } catch (IllegalArgumentException e) {
+                materialType = Material.valueOf("WATCH"); // 旧版本
+            }
+            ItemStack clock = new ItemStack(materialType, 1);  
             ItemMeta meta = clock.getItemMeta();
             if (meta != null) {
                 meta.setDisplayName(ChatColor.RESET + "菜单"); // 显示名称为"菜单"
