@@ -17,6 +17,10 @@ public class GiveClock extends JavaPlugin {
         // 保存默认配置文件
         saveDefaultConfig();
         
+        // 初始化 bStats
+        int pluginId = 30636;
+        Metrics metrics = new Metrics(this, pluginId);
+        
         // Log plugin enabled message
         getLogger().info("GiveClock plugin enabled!");
         getLogger().info("作者: 午夜_Midnight");
