@@ -3,6 +3,7 @@ package top.midnight.giveclock;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import top.midnight.giveclock.commands.GiveClockCommand;
 import top.midnight.giveclock.listeners.GiveItems;
 
 public class GiveClock extends JavaPlugin {
@@ -19,6 +20,9 @@ public class GiveClock extends JavaPlugin {
         // Log plugin enabled message
         getLogger().info("GiveClock plugin enabled!");
         getLogger().info("作者: 午夜_Midnight");
+
+        // 注册命令执行器
+        getCommand("giveclock").setExecutor(new GiveClockCommand(this));
 
         // Register event listeners
         Bukkit.getPluginManager().registerEvents(new GiveItems(), this);

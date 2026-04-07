@@ -4,5 +4,19 @@ description: Give the player a clock when they join the server.
 author: Midnight-2004
 main: top.midnight.giveclock.GiveClock
 api-version: 1.12
-api: []
 
+commands:
+  giveclock:
+    description: 插件管理命令
+    usage: /giveclock reload
+    permission: giveclock.reload
+    aliases:
+      - gc
+
+permissions:
+  giveclock.reload:
+    description: 允许重载插件配置
+    default: op
+  giveclock.giveclock:
+    description: 允许玩家在加入时获得钟
+    default: true

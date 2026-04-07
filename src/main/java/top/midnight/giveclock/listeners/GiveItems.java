@@ -36,6 +36,11 @@ public class GiveItems implements Listener {
 
     @EventHandler
     public void onPlayerJoinServer(PlayerJoinEvent event) {
+        // 检查玩家是否有获得钟的权限
+        if (!event.getPlayer().hasPermission("giveclock.giveclock")) {
+            return;
+        }
+
         FileConfiguration config = GiveClock.getInstance().getConfig();
         
         ItemStack clock = items.getItem("clock");
