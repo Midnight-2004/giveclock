@@ -27,26 +27,26 @@ public class GiveClockCommand implements CommandExecutor {
         if (subCommand.equals("reload")) {
             // 检查权限
             if (!sender.hasPermission("giveclock.reload")) {
-                sender.sendMessage(GiveClock.colorize("&c[giveclock] 你没有权限执行此命令!"));
+                sender.sendMessage(GiveClock.colorize("&c[GiveClock] 你没有权限执行此命令!"));
                 return true;
             }
 
             // 重载配置
             plugin.reloadConfig();
-            sender.sendMessage(GiveClock.colorize("&a[giveclock] 配置已重载!"));
+            sender.sendMessage(GiveClock.colorize("&a[GiveClock] 配置已重载!"));
             
             // 如果是玩家执行的，记录日志
             if (sender instanceof Player) {
-                plugin.getLogger().info("玩家 " + ((Player) sender).getName() + " 重载了插件配置.");
+                plugin.getLogger().info("玩家 " + ((Player) sender).getName() + " 重载了插件配置。");
             } else {
-                plugin.getLogger().info("控制台重载了插件配置.");
+                plugin.getLogger().info("控制台重载了插件配置。");
             }
             
             return true;
         }
 
         // 未知子命令
-        sender.sendMessage(GiveClock.colorize("&c[giveclock] 未知子命令. 用法: /giveclock reload"));
+        sender.sendMessage(GiveClock.colorize("&c[GiveClock] 未知命令. 用法: /giveclock reload"));
         return true;
     }
 }
