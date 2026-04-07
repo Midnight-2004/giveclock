@@ -1,5 +1,5 @@
 name: GiveClock
-version: 0.0.3
+version: 0.1.0
 description: Give the player a clock when they join the server.
 author: Midnight-2004
 main: top.midnight.giveclock.GiveClock
