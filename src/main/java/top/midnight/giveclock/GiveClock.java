@@ -3,7 +3,7 @@ package top.midnight.giveclock;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import top.midnight.giveclock.bstats;
+import top.midnight.giveclock.bstats.Metrics;
 import top.midnight.giveclock.commands.GiveClockCommand;
 import top.midnight.giveclock.listeners.GiveItems;
 
