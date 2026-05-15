@@ -1,12 +1,17 @@
 package top.midnight.giveclock.commands;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import top.midnight.giveclock.GiveClock;
 
-public class GiveClockCommand implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class GiveClockCommand implements TabExecutor {
 
     private final GiveClock plugin;
 
@@ -57,7 +62,8 @@ public class GiveClockCommand implements CommandExecutor {
      * 发送帮助信息
      */
     private void sendHelp(CommandSender sender) {
-        sender.sendMessage(GiveClock.colorize("&6/giveclock 插件帮助"));
+        sender.sendMessage(GiveClock.colorize("&6giveclock 插件帮助"));
+        sender.sendMessage(GiveClock.colorize("&e/giveclock help &7- 显示帮助信息"));
         sender.sendMessage(GiveClock.colorize("&e/giveclock reload &7- 重载插件配置"));
         sender.sendMessage(GiveClock.colorize("&e/giveclock version &7- 显示插件版本"));
     }
@@ -68,5 +74,28 @@ public class GiveClockCommand implements CommandExecutor {
     private void sendVersion(CommandSender sender) {
         String version = plugin.getDescription().getVersion();
         sender.sendMessage(GiveClock.colorize("&a[GiveClock] 版本: " + version + " | 作者: Midnight-2004"));
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> subCommands = Arrays.asList("help", "reload", "version");
+            
+            // 如果玩家没有 reload 权限，过滤掉该选项
+            if (!sender.hasPermission("giveclock.reload")) {
+                subCommands = subCommands.stream()
+                    .filter(cmd -> !cmd.equals("reload"))
+                    .collect(Collectors.toList());
+            }
+            
+            // 根据已输入的内容进行过滤
+            String input = args[0].toLowerCase();
+            return subCommands.stream()
+                .filter(cmd -> cmd.startsWith(input))
+                .collect(Collectors.toList());
+        }
+        
+        // 其他参数不提供补全
+        return new ArrayList<>();
     }
 }

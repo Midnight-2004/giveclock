@@ -26,8 +26,10 @@ public class GiveClock extends JavaPlugin {
         getLogger().info("GiveClock plugin has been enabled!");
         getLogger().info("Author: 午夜_Midnight");
 
-        // 注册命令执行器
-        getCommand("giveclock").setExecutor(new GiveClockCommand(this));
+        // 注册命令执行器和自动补全器
+        GiveClockCommand giveClockCommand = new GiveClockCommand(this);
+        getCommand("giveclock").setExecutor(giveClockCommand);
+        getCommand("giveclock").setTabCompleter(giveClockCommand);
 
         // 注册事件监听器
         Bukkit.getPluginManager().registerEvents(new GiveItems(), this);
