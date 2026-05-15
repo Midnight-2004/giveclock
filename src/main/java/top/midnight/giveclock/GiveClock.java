@@ -22,21 +22,21 @@ public class GiveClock extends JavaPlugin {
         int pluginId = 30636;
         Metrics metrics = new Metrics(this, pluginId);
         
-        // Log plugin enabled message
-        getLogger().info("GiveClock plugin enabled!");
-        getLogger().info("作者: 午夜_Midnight");
+        // 记录插件启用信息
+        getLogger().info("GiveClock plugin has been enabled!");
+        getLogger().info("Author: 午夜_Midnight");
 
         // 注册命令执行器
         getCommand("giveclock").setExecutor(new GiveClockCommand(this));
 
-        // Register event listeners
+        // 注册事件监听器
         Bukkit.getPluginManager().registerEvents(new GiveItems(), this);
     }
 
     @Override
     public void onDisable() {
-        // Log plugin disabled message
-        getLogger().info("GiveClock plugin disabled!");
+        // 记录插件禁用信息
+        getLogger().info("GiveClock plugin has been disabled!");
     }
 
     /**
